@@ -4,7 +4,7 @@ import { useState } from "react";
 function ImgShow({ image, onSelection }) {
   const [isSelected, setIsSelected] = useState(false);
   const buttonClasses = clsx({
-    "absolute h-12 pl-4 pr-6 shadow-lg py-3 group-hover:visible flex m-auto inset-0 rounded-xl border": true,
+    "absolute h-12 pl-4 pr-6 shadow-lg py-3 group-hover:visible flex m-auto inset-0 rounded-xl border hover:bg-slate-700 hover:text-slate-200 transition-colors": true,
     "bg-slate-200 border-slate-900 text-slate-900 invisible": !isSelected,
     "bg-slate-800 border-slate-200 text-slate-200 visible": isSelected,
   });
@@ -14,13 +14,16 @@ function ImgShow({ image, onSelection }) {
     onSelection(image.id);
   };
   return (
-    <div className="relative mb-6 group">
+    <div
+      className="relative mb-6 group hover:cursor-pointer"
+      onClick={handleClick}
+    >
       <img
         className="rounded-xl"
         alt={image.alt_description}
         src={image.urls.regular}
       />
-      <button className={buttonClasses} onClick={handleClick}>
+      <button className={buttonClasses}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
