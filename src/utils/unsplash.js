@@ -1,8 +1,7 @@
 import axios from "axios";
 import JSZip from "jszip";
 
-console.log(import.meta.env);
-console.log(process.env);
+console.log("testing envs from vite", import.meta.env.VITE_UNSPLASH_ACCESS);
 
 const searchImages = async (term, page) => {
   const response = await axios.get("https://api.unsplash.com/search/photos", {
