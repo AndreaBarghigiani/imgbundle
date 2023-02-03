@@ -16,7 +16,6 @@ function ImgList({ images, onLoadMore }) {
   };
 
   const handleSelection = (id) => {
-    console.log(`this is id`, id);
     const selected = [...selectedImages];
 
     if (selected.includes(id)) {
