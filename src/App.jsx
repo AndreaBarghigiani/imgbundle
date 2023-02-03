@@ -1,6 +1,9 @@
 import { useState } from "react";
+
 import ImgList from "./components/ImgList";
 import SearchBar from "./components/SearchBar";
+import Avatar from "./components/Avatar";
+
 import searchImages from "./utils/unsplash";
 
 function App() {
@@ -26,18 +29,29 @@ function App() {
     setCurPage((prev) => prev + 1);
   };
   return (
-    <main className="container relative mx-auto">
-      <header className="mt-8">
-        <h1 className="text-center font-headings text-7xl font-bold">
-          ImgBundle
-        </h1>
-      </header>
-      <section>
-        <SearchBar onSubmit={handleSubmit} />
+    <>
+      <p className="mt-10 text-center text-sm font-thin text-slate-400">
+        If you read this please understand that the app{" "}
+        <strong>is not yet finished</strong>.
+        <br />
+        <em className="text-xs">
+          It already works and have some animations, but I want to add more.
+        </em>
+      </p>
+      <Avatar />
+      <main className="container relative mx-auto">
+        <header className="mt-32">
+          <h1 className="text-center font-headings text-7xl font-bold">
+            ImgBundle
+          </h1>
+        </header>
+        <section className="mt-32">
+          <SearchBar onSubmit={handleSubmit} />
 
-        <ImgList images={images} onLoadMore={handleLoadMore} />
-      </section>
-    </main>
+          <ImgList images={images} onLoadMore={handleLoadMore} />
+        </section>
+      </main>
+    </>
   );
 }
 
