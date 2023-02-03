@@ -3,10 +3,21 @@ import { useState } from "react";
 
 function ImgShow({ image, onSelection }) {
   const [isSelected, setIsSelected] = useState(false);
-  const buttonClasses = clsx({
-    "absolute h-12 pl-4 pr-6 shadow-lg py-3 group-hover:visible flex m-auto inset-0 rounded-xl border hover:bg-slate-700 hover:text-slate-200 transition-colors": true,
-    "bg-slate-200 border-slate-900 text-slate-900 invisible": !isSelected,
-    "bg-slate-800 border-slate-200 text-slate-200 visible": isSelected,
+  const buttonClasses = clsx(
+    "absolute z-20 h-12 pl-4 pr-6 shadow-lg py-3 translate-y-1 group-hover:visible group-hover:translate-y-0 flex m-auto inset-0 rounded-xl border hover:bg-slate-700 hover:text-slate-200 transition-all",
+    {
+      "bg-slate-200 border-slate-900 text-slate-900 invisible": !isSelected,
+      "bg-slate-800 border-slate-200 text-slate-200 visible translate-y-0":
+        isSelected,
+    }
+  );
+
+  const containerClasses = clsx("group relative mb-6 hover:cursor-pointer", {
+    "mb-6": isSelected,
+  });
+
+  const imgClasses = clsx("rounded-xl transition-transform duration-75", {
+    "scale-95 opacity-70 border-slate-200 shadow-xl": isSelected,
   });
 
   const handleClick = () => {
@@ -14,15 +25,7 @@ function ImgShow({ image, onSelection }) {
     onSelection(image.id);
   };
   return (
-    <div
-      className="relative mb-6 group hover:cursor-pointer"
-      onClick={handleClick}
-    >
-      <img
-        className="rounded-xl"
-        alt={image.alt_description}
-        src={image.urls.regular}
-      />
+    <div className={containerClasses} onClick={handleClick}>
       <button className={buttonClasses}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +33,7 @@ function ImgShow({ image, onSelection }) {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6 mr-1"
+          className="mr-1 h-6 w-6"
         >
           <path
             strokeLinecap="round"
@@ -40,6 +43,11 @@ function ImgShow({ image, onSelection }) {
         </svg>
         {isSelected ? `Selected` : `Select`}
       </button>
+      <img
+        className={imgClasses}
+        alt={image.alt_description}
+        src={image.urls.regular}
+      />
     </div>
   );
 }

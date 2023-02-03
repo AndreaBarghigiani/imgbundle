@@ -12,8 +12,7 @@ function App() {
     const { data } = await searchImages(term, curPage);
 
     if (term === prevTerm) {
-      setImages((prev) => [...prev, ...data.results]);
-      setCurPage((prev) => prev + 1);
+      handleLoadMore();
     } else {
       setImages(data.results);
       setPrevTerm(term);
@@ -27,14 +26,14 @@ function App() {
     setCurPage((prev) => prev + 1);
   };
   return (
-    <main className="container mx-auto relative">
+    <main className="container relative mx-auto">
       <header className="mt-8">
-        <h1 className="font-headings text-7xl font-bold text-center">
+        <h1 className="text-center font-headings text-7xl font-bold">
           ImgBundle
         </h1>
       </header>
       <section>
-        <SearchBar onSubmit={handleSubmit} images={images} />
+        <SearchBar onSubmit={handleSubmit} />
 
         <ImgList images={images} onLoadMore={handleLoadMore} />
       </section>

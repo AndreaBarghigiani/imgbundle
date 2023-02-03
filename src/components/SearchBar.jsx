@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar({ onSubmit, images }) {
+function SearchBar({ onSubmit }) {
   const [term, setTerm] = useState("");
 
   const handleSubmit = (e) => {
@@ -12,15 +12,15 @@ function SearchBar({ onSubmit, images }) {
     setTerm(e.target.value);
   };
   return (
-    <div className="relative py-3 sm:max-w-xl sm:mx-auto my-10">
-      <div className="absolute inset-0 bg-gradient-to-b scale-200 from-slate-600 to-slate-800 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-2 sm:rounded-3xl"></div>
+    <div className="relative my-10 py-3 sm:mx-auto sm:max-w-xl">
+      <div className="scale-200 absolute inset-0 -skew-y-12 transform bg-gradient-to-b from-slate-600 to-slate-800 shadow-lg sm:-rotate-2 sm:skew-y-0 sm:rounded-3xl"></div>
       <form
         onSubmit={handleSubmit}
-        className="relative px-4 py-8 bg-slate-900 shadow-lg border border-slate-600 sm:rounded-3xl sm:p-14 border-opacity-50"
+        className="relative border border-slate-600 border-opacity-50 bg-slate-900 px-4 py-8 shadow-lg sm:rounded-3xl sm:p-14"
       >
         <input
           type="text"
-          className="rounded-lg max-w-xl w-full text-slate-900"
+          className="w-full max-w-xl rounded-lg text-slate-900"
           value={term}
           onChange={handleChange}
           placeholder="Start typing..."

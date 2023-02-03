@@ -16,7 +16,7 @@ const searchImages = async (term, page) => {
   return response;
 };
 
-const makeZip = async (images) => {
+const makeZip = async (images, cb) => {
   const zip = new JSZip();
   const fileName = `imgbundle-images.zip`;
 
@@ -40,6 +40,7 @@ const makeZip = async (images) => {
     link.download = fileName;
     document.body.appendChild(link);
     link.click();
+    cb();
     document.body.removeChild(link);
   });
 };
