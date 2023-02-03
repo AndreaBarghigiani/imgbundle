@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import { useState } from "react";
 
-function ImgShow({ image, onSelection }) {
-  const [isSelected, setIsSelected] = useState(false);
+function ImgShow({ image, onSelection, selectedImages }) {
+  const isSelected = selectedImages.includes(image.id);
   const buttonClasses = clsx(
     "absolute z-20 h-12 pl-4 pr-6 shadow-lg py-3 translate-y-1 group-hover:visible group-hover:translate-y-0 flex m-auto inset-0 rounded-xl border hover:bg-slate-700 hover:text-slate-200 transition-all",
     {
@@ -21,7 +20,6 @@ function ImgShow({ image, onSelection }) {
   });
 
   const handleClick = () => {
-    setIsSelected((prev) => !prev);
     onSelection(image.id);
   };
   return (

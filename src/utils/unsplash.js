@@ -40,7 +40,7 @@ const makeZip = async (images, cb) => {
     link.download = fileName;
     document.body.appendChild(link);
     link.click();
-    cb();
+    cb("downloaded");
     document.body.removeChild(link);
   });
 };
