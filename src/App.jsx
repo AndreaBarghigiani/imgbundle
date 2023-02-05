@@ -30,20 +30,13 @@ function App() {
   };
   return (
     <>
-      <p className="mt-10 text-center text-sm font-thin text-slate-400">
-        If you read this please understand that the app{" "}
-        <strong>is not yet finished</strong>.
-        <br />
-        <em className="text-xs">
-          It already works and have some animations, but I want to add more.
-        </em>
-      </p>
       <Avatar />
       <main className="container relative mx-auto">
-        <header className="my-20">
-          <h1 className="text-center font-headings text-7xl font-bold">
-            ImgBundle
-          </h1>
+        <header className="my-32 text-center">
+          <h1 className=" font-headings text-7xl font-bold">ImgBundle</h1>
+          <p className="mt-4 text-sm text-slate-400">
+            Find your images and bundle in a single <code>.zip</code> archive.
+          </p>
         </header>
         <section className="my-32">
           <SearchBar onSubmit={handleSubmit} />
