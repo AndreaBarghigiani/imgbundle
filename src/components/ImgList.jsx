@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import ImgShow from "./ImgShow";
 import DownloadBar from "./DownloadBar";
 
@@ -38,13 +39,22 @@ function ImgList({ images, onLoadMore }) {
   return (
     <>
       <div className="columns-3">
-        {images.map((image) => (
-          <ImgShow
-            image={image}
+        {images.map((image, i) => (
+          <motion.div
             key={image.id}
-            onSelection={handleSelection}
-            selectedImages={selectedImages}
-          />
+            initial={{
+              opacity: 0,
+              translateY: -50,
+            }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.3, delay: i * 0.05 }}
+          >
+            <ImgShow
+              image={image}
+              onSelection={handleSelection}
+              selectedImages={selectedImages}
+            />
+          </motion.div>
         ))}
       </div>
 

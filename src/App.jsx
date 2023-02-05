@@ -40,12 +40,12 @@ function App() {
       </p>
       <Avatar />
       <main className="container relative mx-auto">
-        <header className="mt-32">
+        <header className="my-20">
           <h1 className="text-center font-headings text-7xl font-bold">
             ImgBundle
           </h1>
         </header>
-        <section className="mt-32">
+        <section className="my-32">
           <SearchBar onSubmit={handleSubmit} />
 
           <ImgList images={images} onLoadMore={handleLoadMore} />

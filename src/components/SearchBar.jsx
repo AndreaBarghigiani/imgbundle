@@ -12,7 +12,7 @@ function SearchBar({ onSubmit }) {
     setTerm(e.target.value);
   };
   return (
-    <div className="relative my-10 py-2 sm:mx-auto sm:max-w-2xl">
+    <div className="relative my-10 my-32 py-2 sm:mx-auto sm:max-w-2xl">
       <div className="absolute inset-0 -skew-y-12 transform bg-gradient-to-b from-slate-600 to-slate-800 shadow-lg sm:-rotate-2 sm:skew-y-0 sm:rounded-3xl"></div>
       <form
         onSubmit={handleSubmit}
