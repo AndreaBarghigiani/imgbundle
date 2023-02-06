@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 
+import ProfilePicture from "../assets/images/andrea-barghigiani.jpg";
+
 function Avatar() {
   return (
     <div className="fixed top-6 right-6 flex items-center">
@@ -55,7 +57,7 @@ function Avatar() {
           className="absolute"
         >
           <motion.img
-            src={import.meta.env.BASE_URL + "images/andrea-barghigiani.jpg"}
+            src={ProfilePicture}
             alt="Andrea Barghigiani"
             className="h-14 w-14 rounded-full"
             initial={{ y: 100 }}
