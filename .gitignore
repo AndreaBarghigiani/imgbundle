@@ -46,7 +46,7 @@ next-env.d.ts
 .LSOverride
 
 # Icon must end with two \r
-Icon
+/Icon
 
 
 # Thumbnails
